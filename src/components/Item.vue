@@ -1,7 +1,6 @@
 <template>
   <div>
-    item
-    Hello
+    <a href="">{{ item.title }}</a>
     {{ item.url }}
   </div>
 </template>

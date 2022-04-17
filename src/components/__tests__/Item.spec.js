@@ -11,6 +11,6 @@ describe('Item', () => {
     const wrapper = shallowMount(Item, {
       propsData: { item }
     });
-    expect(wrapper.text()).toContain(item.url)
+    expect(wrapper.find('a').text()).toBe(item.title)
   })
 })
