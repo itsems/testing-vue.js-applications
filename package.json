@@ -7,9 +7,7 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "test:unit:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --no-cache --runInBand",
-    "test:debug": "node --inspect-brk node_modules/.bin/vue-cli-service test:unit --runInBand",
-    "debug": "node --inspect ./node_modules/jest/bin/jest --config test/unit/jest.conf.js"
+    "test:unit:debug" : "node --inspect-brk ./node_modules/jest/bin/jest.js --no-cache --runInBand "
   },
   "dependencies": {
     "babel-jest": "^27.5.1",
@@ -73,6 +71,7 @@
       "^.+\\.js$": "babel-jest",
       "^.+\\.vue$": "vue-jest"
     },
-    "preset": "@vue/cli-plugin-unit-jest"
+    "preset": "@vue/cli-plugin-unit-jest",
+    "transformIgnorePatterns": ["/node_modules/(?!@babel)"]
   }
 }
