@@ -35,4 +35,19 @@ describe('Item', () => {
     expect(a.attributes().href).toBe(item.url)
 
   })
+
+  // chapter-3 練習 1
+  test('render item.score & item.author', () => {
+    const item = {
+      score: 50,
+      author: 'emma',
+    }
+    const wrapper = shallowMount(Item, {
+      propsData: { item }
+    })
+    expect(wrapper.text()).toContain(item.score)
+    expect(wrapper.text()).toContain(item.author)
+  })
+
+
 })
