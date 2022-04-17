@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "test:unit:debug" : "node --inspect-brk ./node_modules/jest/bin/jest.js --no-cache --runInBand "
+    "test:unit:debug" : "node --inspect-brk ./node_modules/jest/bin/jest.js --no-cache --runInBand"
   },
   "dependencies": {
     "babel-jest": "^27.5.1",
