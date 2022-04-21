@@ -1,8 +1,33 @@
 <template>
-  <div 
-    class="hidden"
-    :style="{
-      'width': '0%'
+  <div
+    :class="{
+      hidden: hidden
     }"
-  ></div>
+  :style="{
+    'width': `${percent}%`
+  }"/>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      hidden: true,
+      percent: 0,
+    }
+  },
+  methods: {
+    start () {
+      this.hidden = false
+      this.percent = 0
+      this.timer = setInterval(() => {
+        this.percent++;
+      }, 100);
+    },
+    finish () {
+      this.hidden = true
+      this.percent = 100
+    },
+  }
+}
+</script>
