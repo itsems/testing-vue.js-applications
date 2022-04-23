@@ -1,25 +1,34 @@
 <template>
   <div class="item-list">
-    <item
-     v-for="item in displayItems" 
-     :key="item.id"
-     :item="item"
-      />
+    <item v-for="item in displayItems" :key="item.id" :item="item" />
   </div>
 </template>
 
 <script>
-import Item from '../components/Item.vue'
-// import api from '../api/api'
+import Item from "../components/Item.vue";
+import { fetchListData } from "../api/api";
 
 export default {
   components: {
-    Item
+    Item,
   },
-  data () {
+  beforeMount() {
+    this.$bar.start();
+  },
+  data() {
     return {
-      displayItems: window.items
-    }
+      displayItems: [],
+    };
+  },
+  methods: {
+   loadItmes () {
+     this.$bar.start();
+     fetchListData('top')
+      .then(items => {
+        this.displayItems = items
+        this.$bar.finish();
+      })
+   } 
   }
-}
+};
 </script>

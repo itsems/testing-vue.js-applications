@@ -40,15 +40,26 @@ describe('ProgressBar.vue', () => {
     expect(wrapper.element.style.width).toBe('0%')
   })
 
-  test('increase width by 1% every 100ms after start call', () => {
+  test('increase width by 1% every 100ms after start call', async () => {
     const wrapper = shallowMount(ProgressBar);
     wrapper.vm.start();
-    jest.runTimersToTime(100); // 過 100ms
+    await jest.runTimersToTime(100); // 過 100ms
     expect(wrapper.element.style.width).toBe('1%')
-    jest.runTimersToTime(900); // 再過 900ms = 1s
+    await jest.runTimersToTime(900); // 再過 900ms = 1s
     expect(wrapper.element.style.width).toBe('10%')
-    jest.runTimersToTime(4000); // 再過 4000ms = 5s
+    await jest.runTimersToTime(4000); // 再過 4000ms = 5s
     expect(wrapper.element.style.width).toBe('50%')
   })
 
+  test('clears timer when finish is called', () => {
+    jest.spyOn(window, 'clearInterval')
+    setInterval.mockReturnValue(123)
+    const wrapper = shallowMount(ProgressBar)
+    wrapper.vm.start();
+    wrapper.vm.finish()
+    expect(window.clearInterval).toHaveBeenCalledWith(123)
+  })
+
 })
+
+
