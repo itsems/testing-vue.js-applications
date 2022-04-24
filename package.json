@@ -7,13 +7,15 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit --no-cache",
     "lint": "vue-cli-service lint",
-    "test:unit:debug" : "node --inspect-brk ./node_modules/jest/bin/jest.js --no-cache --runInBand"
+    "test:unit:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --no-cache --runInBand"
   },
   "dependencies": {
+    "axios": "^0.26.1",
     "babel-jest": "^27.5.1",
     "firebase": "^9.6.11",
     "jest": "^27.5.1",
     "vue": "^2.5.16",
+    "vue-axios": "^3.4.1",
     "vue-jest": "^3.0.7"
   },
   "devDependencies": {
@@ -72,6 +74,8 @@
       "^.+\\.vue$": "vue-jest"
     },
     "preset": "@vue/cli-plugin-unit-jest",
-    "transformIgnorePatterns": ["/node_modules/(?!@babel)"]
+    "transformIgnorePatterns": [
+      "/node_modules/(?!@babel)"
+    ]
   }
 }
