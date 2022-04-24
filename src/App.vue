@@ -1,13 +1,31 @@
 <template>
-  <item-list />
+  <div>
+    <Modal
+      v-if="displayModal"
+      @close-modal="closeModal"
+    >
+      <Form v-on:form-submitted="closeModal" />
+    </Modal>
+  </div>
 </template>
 
 <script>
-import ItemList from './views/ItemList.vue'
+import Form from './components/Form'
+import Modal from './components/Modal'
 
 export default {
+  name: 'App',
+  data: () => ({
+    displayModal: true
+  }),
   components: {
-    ItemList
+    Form,
+    Modal
+  },
+  methods: {
+    closeModal () {
+      this.displayModal = false
+    }
   }
 }
 </script>
