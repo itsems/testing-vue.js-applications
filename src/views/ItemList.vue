@@ -13,7 +13,7 @@ export default {
     Item,
   },
   beforeMount() {
-    this.$bar.start();
+    this.loadItmes();
   },
   data() {
     return {
@@ -28,6 +28,7 @@ export default {
         this.displayItems = items
         this.$bar.finish();
       })
+      .catch(() => this.$bar.fail())
    } 
   }
 };

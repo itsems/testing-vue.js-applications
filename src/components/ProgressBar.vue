@@ -1,7 +1,8 @@
 <template>
   <div
     :class="{
-      hidden: hidden
+      hidden: hidden,
+      error: error
     }"
   :style="{
     'width': `${percent}%`
@@ -14,6 +15,7 @@ export default {
     return {
       hidden: true,
       percent: 0,
+      error: false
     }
   },
   methods: {
@@ -29,6 +31,11 @@ export default {
       this.percent = 100
       clearInterval(this.timer)
     },
+    // chp4 練習
+    fail () {
+      this.error = true;
+      this.percent = 100
+    }
   }
 }
 </script>
