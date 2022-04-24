@@ -9,7 +9,7 @@ Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
 
 const bar = new Vue(ProgressBar).$mount()
-Vue.prototype.$bar = bar;
+Vue.prototype.$bar = bar
 document.body.appendChild(bar.$el)
 
 new Vue({

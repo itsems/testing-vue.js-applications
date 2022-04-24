@@ -38,7 +38,11 @@ describe('Form', () => {
       mocks: { axios }
     })
     const url = 'http://demo7437963.mockable.io/validate'
-    wrapper.find('input[value="no"').setChecked()
-    wrapper.find('button')
+    wrapper.find('input[value="no"]').setChecked()
+    wrapper.find('button').trigger('submit')
+
+    expect(axios.post).toHaveBeenCalledWith(url, expect.objectContaining({
+      enterCompetition: false
+    }))
   })
 })

@@ -45,13 +45,13 @@ describe('ItemList.vue', () =>{
   test('calls $bar start on load', () =>{
     const $bar = {
       start: jest.fn(),
-      funush: () => {}
+      finish: () => {}
     }
     shallowMount(ItemList, {mocks: { $bar }})
     expect($bar.start).toHaveBeenCalledTimes(1);
   })
 
-  test('calls $bar.finish when load is sueccessful', async () => {
+  test('calls $bar.finish when load is successful', async () => {
     expect.assertions(1)
     const $bar = {
       start: () => {},
@@ -59,6 +59,7 @@ describe('ItemList.vue', () =>{
     }
     shallowMount(ItemList, {mocks: {$bar}})
     await flushPromises()
+
     expect($bar.finish).toHaveBeenCalled()
   })
 
@@ -68,7 +69,8 @@ describe('ItemList.vue', () =>{
       start: () => {},
       fail: jest.fn()
     }
-    fetchListData.mockRejectedValueOnce()
+    // fetchListData.mockRejectedValueOnce()
+    fetchListData.mockImplementationOnce(() => Promise.reject())
     shallowMount(ItemList, {mocks: {$bar}})
     await flushPromises()
     expect ($bar.fail).toHaveBeenCalled()

@@ -5,7 +5,7 @@ import Modal from '../components/Modal.vue'
 describe('App.vue', () => {
   test('hides Modal when Modal emits close-modal', async () => {
     const wrapper = shallowMount(App)
-    await wrapper.find(Modal).vm.$emit('close-modal')
-    expect(wrapper.find(Modal).exists()).toBeFalsy()
+    await wrapper.findComponent(Modal).vm.$emit('close-modal')
+    expect(wrapper.findComponent(Modal).exists()).toBeFalsy()
   })
 })

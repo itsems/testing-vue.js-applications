@@ -1,8 +1,9 @@
 <template>
   <div>
+     <slot />
     <button
       @click="$emit('close-modal')"
-    ></button>
+    >close modal</button>
   </div>
 </template>
 <script>
