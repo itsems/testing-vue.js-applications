@@ -12,17 +12,26 @@ export default {
     Item,
   },
   beforeMount() {
-    this.loadItmes();
+    this.loadItems();
   },
   data() {
     return {
     };
   },
   methods: {
-   loadItmes () {
-     this.$bar.start();
-     
-   } 
+   loadItems() {
+      this.$bar.start()
+      this.$store.dispatch('fetchListData', {
+        type: 'top'
+      })
+        .then(items => {
+          this.displayItems = items
+          this.$bar.finish()
+        })
+        .catch(() => {
+          this.$bar.fail()
+        })
+    }
   }
 };
 </script>

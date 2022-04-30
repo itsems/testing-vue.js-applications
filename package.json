@@ -30,6 +30,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "cross-env": "^5.2.0",
     "lodash.clonedeep": "^4.5.0",
+    "lodash.mergewith": "^4.6.2",
     "vue-template-compiler": "^2.5.16"
   },
   "eslintConfig": {
