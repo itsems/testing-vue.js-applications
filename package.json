@@ -12,13 +12,15 @@
   "dependencies": {
     "axios": "^0.26.1",
     "babel-jest": "^27.5.1",
-    "firebase": "^9.6.11",
+    "firebase": "^9.7.0",
     "flush-promises": "^1.0.2",
     "jest": "^27.5.1",
     "vue": "^2.5.16",
     "vue-axios": "^3.4.1",
     "vue-jest": "^3.0.7",
-    "vuex": "^3.6.2"
+    "vue-router": "^3.5.3",
+    "vuex": "^3.6.2",
+    "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-beta.15",
