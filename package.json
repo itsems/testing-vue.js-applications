@@ -82,6 +82,7 @@
     "preset": "@vue/cli-plugin-unit-jest",
     "transformIgnorePatterns": [
       "/node_modules/(?!@babel)"
-    ]
+    ],
+    "setupFiles": ["./test-setup.js"]
   }
 }

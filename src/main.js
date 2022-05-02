@@ -7,6 +7,7 @@ import VueAxios from 'vue-axios'
 import storeConfig from './store/store-config'
 import Router from 'vue-router'
 import routerConfig from './router/router-config'
+import { titleMixin } from './util/mixins'
 
 Vue.config.productionTip = false
 
@@ -21,6 +22,8 @@ const router = new Router(routerConfig)
 const bar = new Vue(ProgressBar).$mount()
 Vue.prototype.$bar = bar
 document.body.appendChild(bar.$el)
+
+Vue.mixin(titleMixin)
 
 new Vue({
   el: '#app',
