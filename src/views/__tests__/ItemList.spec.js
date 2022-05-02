@@ -217,5 +217,13 @@ describe("ItemList.vue", () => {
     expect(wrapper.findAll('a').at(1).text()).toBe('more >')
   })
   
+  test('sets document.title with capitalized type prop', () => {
+    createWrapper({
+      mocks: {
+        $route: { params: { type: 'top' } }
+      }
+    })
+    expect(document.title).toBe('Vue HN | Top')
+  })
 
 });
