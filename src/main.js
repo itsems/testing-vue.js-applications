@@ -9,6 +9,7 @@ import Router from 'vue-router'
 import routerConfig from './router/router-config'
 import { titleMixin } from './util/mixins'
 import { timeAgo, host } from './util/filters'
+import { uppercase } from './src/util/uppercase'
 
 Vue.config.productionTip = false
 
@@ -28,6 +29,7 @@ Vue.mixin(titleMixin)
 
 Vue.filter('timeAgo', timeAgo)
 Vue.filter('host', host)
+Vue.filter('uppercase', uppercase)
 
 new Vue({
   el: '#app',
