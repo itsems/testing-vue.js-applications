@@ -3,14 +3,14 @@ import Item from '../Item.vue'
 
 
 describe('Item', () => {
-  test('render item.url', () => {
+  test('renders the hostname', () => {
     const item = {
-      url: 10
+      url: 'https://some-url.com/with-paths'
     }
     const wrapper = shallowMount(Item, {
       propsData: { item }
     });
-    expect(wrapper.text()).toContain(item.url)
+    expect(wrapper.text()).toContain('some-url.com')
   })
   test('render item.title', () => {
     const item = {
@@ -49,5 +49,21 @@ describe('Item', () => {
     expect(wrapper.text()).toContain(item.author)
   })
 
+  test('renders the time since the last post', () =>{
+    const dateNow = jest.spyOn(Date, 'now')
+    const dateNowTime = new Date('2018')
+    dateNow.mockImplementation(() => dateNowTime)
+
+    const item = {
+      time: (dateNowTime / 1000) - 600 //10分鐘前的UNIX
+    }
+    const wrapper = shallowMount(Item, {
+      propsData: {
+        item
+      }
+    })
+    dateNow.mockRestore()
+    expect(wrapper.text()).toContain('10 minutes ago')
+  })
 
 })

@@ -8,6 +8,7 @@ import storeConfig from './store/store-config'
 import Router from 'vue-router'
 import routerConfig from './router/router-config'
 import { titleMixin } from './util/mixins'
+import { timeAgo, host } from './util/filters'
 
 Vue.config.productionTip = false
 
@@ -24,6 +25,9 @@ Vue.prototype.$bar = bar
 document.body.appendChild(bar.$el)
 
 Vue.mixin(titleMixin)
+
+Vue.filter('timeAgo', timeAgo)
+Vue.filter('host', host)
 
 new Vue({
   el: '#app',

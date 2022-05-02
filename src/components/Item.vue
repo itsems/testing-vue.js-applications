@@ -1,9 +1,12 @@
 <template>
   <div>
     <a :href="item.url">{{ item.title }}</a>
-    {{ item.url }}
+    <span class="host">
+      {{ item.url | host }}
+    </span>
     {{ item.score }}
     {{ item.author }}
+    {{ item.time | timeAgo }} ago
 
   </div>
 </template>

@@ -10,7 +10,7 @@
       </nav>
     </header>
     <div class="view">
-      <router-view :key="$route.params.type"></router-view>
+      <router-view :key="$route.params.type" />
     </div>
   </div>
 </template>
