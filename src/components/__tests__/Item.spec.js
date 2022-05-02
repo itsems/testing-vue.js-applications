@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils'
+import { createWrapper, shallowMount, RouterLinkStub } from '@vue/test-utils'
 import Item from '../Item.vue'
 
 
@@ -39,7 +39,7 @@ describe('Item', () => {
   // chapter-3 練習 1
   test('render item.score & item.author', () => {
     const item = {
-      score: 50,
+      score: '50',
       author: 'emma',
     }
     const wrapper = shallowMount(Item, {
@@ -64,6 +64,55 @@ describe('Item', () => {
     })
     dateNow.mockRestore()
     expect(wrapper.text()).toContain('10 minutes ago')
+  })
+
+  test.only('renders correctly', () => {
+    const dateNow = jest.spyOn(Date, 'now')
+    const dateNowTime = new Date('2018')
+
+    dateNow.mockImplementation(() => dateNowTime)
+
+    const item = {
+      author: 'emma',
+      id: 12321,
+      score: 100,
+      time: (dateNowTime / 1000) - 600,
+      title: 'hello',
+      url: 'https://www.google.com',
+      type: 'story',
+    }
+    // const wrapper = createWrapper(Item, {
+    //   propsData: { item }
+    // })
+    const wrapper = shallowMount(Item, {
+      propsData: { item }
+    })
+    dateNow.mockRestore()
+    expect(wrapper.element).toMatchSnapshot()
+  })
+
+  test.only('renders correctly as job', () => {
+    const dateNow = jest.spyOn(Date, 'now')
+    const dateNowTime = new Date('2018')
+    dateNow.mockImplementation(() => dateNowTime)
+
+    const item = {
+      author: 'emma',
+      id: 12321,
+      score: 100,
+      time: (dateNowTime / 1000) - 600,
+      title: 'hello',
+      url: 'https://www.google.com',
+      type: 'job',
+    }
+    // const wrapper = createWrapper(Item, {
+    //   propsData: { item }
+    // })
+    const wrapper = shallowMount(Item, {
+      propsData: { item }
+    })
+    dateNow.mockRestore()
+    expect(wrapper.element).toMatchSnapshot()
   })
 
 })

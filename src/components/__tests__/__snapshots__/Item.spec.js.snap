@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Item renders correctly 1`] = `
+<div>
+  <a
+    href="https://www.google.com"
+  >
+    hello
+  </a>
+   
+  <span
+    class="host"
+  >
+    
+    google.com
+  
+  </span>
+   
+  <span
+    class="score"
+  >
+    100
+  </span>
+  
+  emma
+  10 minutes ago
+  
+  <span
+    class="by"
+  >
+    
+    type is not 'job'
+  
+  </span>
+</div>
+`;
+
+exports[`Item renders correctly as job 1`] = `
+<div>
+  <a
+    href="https://www.google.com"
+  >
+    hello
+  </a>
+   
+  <span
+    class="host"
+  >
+    
+    google.com
+  
+  </span>
+   
+  <span
+    class="score"
+  >
+    100
+  </span>
+  
+  emma
+  10 minutes ago
+  
+  <!---->
+</div>
+`;

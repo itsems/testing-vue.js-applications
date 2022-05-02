@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`chapter-12 練習題 為此元件寫一個快照測試 1`] = `
+<div>
+  Hello, World!
+</div>
+`;
