@@ -17,7 +17,7 @@
       <a v-else>more &gt;</a>
 
     </div>
-      <div class="item-list">
+      <div class="item-list ">
         <item
           v-for="item in $store.getters.displayItems"
           :key="item.id"
@@ -42,11 +42,11 @@ export default {
     this.loadItems();
   },
   title() {
-    return `${capitalizeFirstLetter(this.$route.params.type)}`
+    return `${capitalizeFirstLetter('top')}`
   },
   computed: {
     type() {
-      return this.$route.params.type;
+      return 'top';
     },
     page() {
       return this.$route.params.page;
@@ -63,11 +63,11 @@ export default {
       this.$bar.start();
       this.$store
         .dispatch("fetchListData", {
-          type: this.$route.params.type,
+          type: 'top',
         })
         .then((items) => {
           if (this.$route.params.page > this.$store.getters.maxPage) {
-            this.$router.replace(`/${this.$route.params.type}/1`);
+            this.$router.replace(`/top/1`);
             return;
           }
           // this.displayItems = items

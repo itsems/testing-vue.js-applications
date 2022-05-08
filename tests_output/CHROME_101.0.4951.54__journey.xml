@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="1"
+            tests="1">
+
+  <testsuite name="journey"
+    errors="0" failures="1" hostname="" id="" package="journey" skipped="0"
+    tests="1" time="56.75" timestamp="">
+  
+    <testcase name="takes user to the item page" classname="journey" time="56.75" assertions="1">  <failure message="Timed out while waiting for element &lt;.news-items&gt; to be present for 55000 milliseconds. - expected &#34;visible&#34; but got: &#34;not found&#34; (55320ms)">    at Object.takes user to the item page (F:\E\Code\Vue\testing-vue.js-applications\e2e\specs\journey.js:5:8)</failure>
+
+    
+    </testcase>
+  
+
+  
+
+    
+
+  
+  </testsuite>
+</testsuites>

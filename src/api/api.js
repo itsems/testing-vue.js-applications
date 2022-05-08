@@ -1,11 +1,11 @@
 import Firebase from 'firebase/app'
 import 'firebase/database'
 
-Firebase.initializeApp({
-  databaseURL: 'https://hacker-news.firebaseio.com'
-})
+// Firebase.initializeApp({
+//   databaseURL: 'https://hacker-news.firebaseio.com'
+// })
 
-const api = Firebase.database().ref('/v0')
+// const api = Firebase.database().ref('/v0')
 
 function fetch (child) {
   const cache = api.cachedItems
